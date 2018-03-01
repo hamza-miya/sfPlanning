@@ -1,0 +1,4 @@
+AppBundle\Entity\Customer:
+    customer_{1..100}:
+        firstname: <firstNameMale()>
+        lastname: <lastName()>

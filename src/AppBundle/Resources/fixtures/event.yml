@@ -1,0 +1,7 @@
+AppBundle\Entity\Event:
+    event_{1..500}:
+        startDate: <dateTime()>
+        duration: <numberBetween(3600, 10800)>
+        employee: '@employee*'
+        customer: '@customer*'
+        houseServiceType : '@houseServiceType*'

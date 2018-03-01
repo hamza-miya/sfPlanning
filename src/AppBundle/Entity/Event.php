@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\AppBundle;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +36,68 @@ class Event
      */
     private $duration;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\houseServiceType")
+     */
+    private $houseServiceType;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Customer")
+     */
+    private $customer;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Employee", inversedBy="events")
+     */
+    private $employee;
+
+    /**
+     * @return \AppBundle\Entity\Customer
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
+
+    /**
+     * @param \AppBundle\Entity\Customer $customer
+     */
+    public function setCustomer($customer)
+    {
+        $this->customer = $customer;
+    }
+
+    /**
+     * @return \AppBundle\Entity\Employee
+     */
+    public function getEmployee()
+    {
+        return $this->employee;
+    }
+
+    /**
+     * @param \AppBundle\Entity\Employee $employee
+     */
+    public function setEmployee($employee)
+    {
+        $this->employee = $employee;
+    }
+
+    /**
+     * @return \AppBundle\Entity\houseServiceType
+     */
+    public function getHouseServiceType()
+    {
+        return $this->houseServiceType;
+    }
+
+    /**
+     * @param \AppBundle\Entity\houseServiceType $houseServiceType
+     */
+    public function setHouseServiceType($houseServiceType)
+    {
+        $this->houseServiceType = $houseServiceType;
+    }
 
     /**
      * Get id
