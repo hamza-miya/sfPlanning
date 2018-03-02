@@ -2,6 +2,23 @@ body {
     background-color: #FFFFFF;
 }
 
+#ui-datepicker-div {
+    z-index: 10000 !important;
+}
+
+.date {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+}
+
+.date .inline {
+    display: inline;
+}
+
+.date #datepicker {
+}
+
 .cols {
     border-left: 1px solid grey;
     text-align: center;
@@ -25,7 +42,7 @@ body {
 
 .planning .hour {
     font-size: 9px;
-    z-index: 10000;
+    z-index: 9999;
     position: absolute;
 }
 
