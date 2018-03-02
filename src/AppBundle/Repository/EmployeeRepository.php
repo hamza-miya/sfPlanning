@@ -10,4 +10,25 @@ namespace AppBundle\Repository;
  */
 class EmployeeRepository extends \Doctrine\ORM\EntityRepository
 {
+    /*public function findEventsFromCurrentWeek($identifier): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT *
+                  FROM AppBundle\Entity\Event ev, AppBundle\Entity\Employee emp
+                  WHERE emp.email = :identifier;
+                  AND ev.employee_id = emp.id
+                  AND e.startDate BETWEEN \'2018-02-26\' AND \'2018-03-02\''
+        )->setParameter('identifier', $identifier);
+
+        // returns an array of events objects
+        return $query->execute();
+    }*/
 }
+
+/*SELECT *
+FROM event,employee
+WHERE employee.email = "ericka.williamson@yahoo.com"
+AND event.employee_id = employee.id
+AND event.startDate BETWEEN '2018-02-26' AND '2018-03-02'*/
