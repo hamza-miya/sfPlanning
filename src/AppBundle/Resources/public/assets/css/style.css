@@ -1,0 +1,52 @@
+body {
+    background-color: #FFFFFF;
+}
+
+.cols {
+    border-left: 1px solid grey;
+    text-align: center;
+}
+
+.cols:first-child {
+    border-left: 0px solid grey;
+}
+
+.cols .titre {
+    height: 29px;
+    margin-bottom: 20px;
+}
+
+.planning .space-event {
+    height: 50px;
+    border-top: 1px dotted lightgray;
+    border-top: 1px dotted lightgray;
+    text-align: left;
+}
+
+.planning .hour {
+    font-size: 9px;
+    z-index: 10000;
+    position: absolute;
+}
+
+.planning .event {
+    height: 50px;
+    border-radius: 5px;
+    background-color: dodgerblue;
+    width: 80%;
+    float: right;
+    padding: 5px;
+    z-index: 5000;
+}
+
+.planning .event span {
+    display: block;
+}
+
+.planning .event .categorie-event {
+    font-size: 12px;
+}
+
+.planning .event .current-hour {
+    font-size: 12px;
+}

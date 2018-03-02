@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        {% for day in ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'] %}
+            <div class="col-md-2 cols">
+                <div class="titre">
+                    <span>{{ day }}</span>
+                </div>
+                <div class="planning">
+
+                    {% for hour in 8..20 %}
+                        <div class="space-event">
+                            {% if day == 'Lundi' %}
+                                <span class="hour">{{ hour }}:00</span>
+                            {% endif %}
+                            {% if day == 'Lundi' and hour == 8 %}
+                                <div class="event">
+                                    {#<span class="current-hour">
+                                        8:00
+                                    </span>#}
+                                    <span class="categorie-event">
+                                        test
+                                    </span>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

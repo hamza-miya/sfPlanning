@@ -1,0 +1,6 @@
+AppBundle\Entity\Employee:
+    employee_{1..10}:
+        firstname: <firstNameMale()>
+        lastname: <lastName()>
+        email: <email()>
+        password: '123456'

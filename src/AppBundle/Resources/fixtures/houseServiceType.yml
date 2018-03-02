@@ -1,0 +1,4 @@
+AppBundle\Entity\HouseServiceType:
+    houseServiceType_{1..3}:
+        name: <jobTitle()>
+        color: <hexcolor()>
