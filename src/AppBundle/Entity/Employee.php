@@ -170,7 +170,7 @@ class Employee
     }
 
     /**
-     * @return ArrayCollection|\AppBundle\Entity\Event[]
+     * @return ArrayCollection|\AppBundle\Entity\Event
      */
     public function getEvents()
     {
@@ -184,6 +184,7 @@ class Employee
     {
         return $this->email;
     }
+
 
 
 }
