@@ -2,10 +2,18 @@
 
 {% block body %}
     <div class="container-fluid">
+
+        <div class="date">
+
+            <input type="number" name="number-weeks"/>
+
+        </div>
+
         {% for day in ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'] %}
             <div class="col-md-2 cols">
                 <div class="titre">
-                    <span>{{ day }}</span>
+                    <span>{{ day }}</span><br>
+                    <span>00</span>
                 </div>
                 <div class="planning">
 
