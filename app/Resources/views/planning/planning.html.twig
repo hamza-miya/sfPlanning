@@ -3,21 +3,23 @@
 {% block body %}
     <div class="container-fluid">
 
-        {#<div class="date">
-            <date class="picker col-md-2">
-                <input type="text" class="form-control" id="datepicker">
-            </date>
-        </div>#}
+    {#<div class="date">
+        <date class="picker col-md-2">
+            <input type="text" class="form-control" id="datepicker">
+        </date>
+    </div>#}
 
-        <div class="employee">
+    <div class="employee">
+        {% if employee %}
             {{ employee.firstname }} {{ employee.lastname }}
-        </div>
+        {% endif %}
+    </div>
 
-        {% for number,day in ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'] %}
-            <div class="col-md-2 cols">
-                <div class="titre">
-                    <span>{{ day }}</span><br>
-                    <span class="day">
+    {% for number,day in ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'] %}
+    <div class="col-md-2 cols">
+        <div class="titre">
+            <span>{{ day }}</span><br>
+            <span class="day">
                         {% if number == 0 %}
                             26 Février 2018
                         {% elseif number == 1 %}
@@ -32,48 +34,49 @@
                             03 Mars 2018
                         {% endif %}
                     </span>
-                </div>
-                {% if number == 0 %}
-                    <div class="planning" data-day="2018-02-26">
-                {% elseif number == 1 %}
-                    <div class="planning" data-day="2018-02-27">
+        </div>
+        {% if number == 0 %}
+        <div class="planning" data-day="2018-02-26">
+            {% elseif number == 1 %}
+            <div class="planning" data-day="2018-02-27">
                 {% elseif number == 2 %}
-                        <div class="planning" data-day="2018-02-28">
-                {% elseif number == 3 %}
-                            <div class="planning" data-day="2018-03-01">
-                {% elseif number == 4 %}
-                                <div class="planning" data-day="2018-03-02">
-                {% elseif number == 5 %}
-                                    <div class="planning" data-day="2018-03-03">
-                {% endif %}
+                <div class="planning" data-day="2018-02-28">
+                    {% elseif number == 3 %}
+                    <div class="planning" data-day="2018-03-01">
+                        {% elseif number == 4 %}
+                        <div class="planning" data-day="2018-03-02">
+                            {% elseif number == 5 %}
+                            <div class="planning" data-day="2018-03-03">
+                                {% endif %}
 
 
-                    {% for hour in 8..20 %}
-                        <div class="space-event" data-space-event="{{ hour }}">
-                            {% if day == 'Lundi' %}
-                                <span class="hour">{{ hour }}:00</span>
-                            {% endif %}
+                                {% for hour in 8..20 %}
+                                    <div class="space-event" data-space-event="{{ hour }}">
+                                        {% if day == 'Lundi' %}
+                                            <span class="hour">{{ hour }}:00</span>
+                                        {% endif %}
 
-                            {% if employee %}
-                                {% for element in employee.events %}
-                                    {% if element.startDate|date('N') == number+1 and element.startDate|date('H') == hour %}
+                                        {% if employee %}
+                                            {% for element in employee.events %}
+                                                {% if element.startDate|date('N') == number+1 and element.startDate|date('H') == hour %}
 
-                                        <div class="event" data-id="{{ element.id }}" style="background-color: {{ element.houseServiceType.color }}">
+                                                    <div class="event" data-id="{{ element.id }}"
+                                                         style="background-color: {{ element.houseServiceType.color }}">
                                             <span class="categorie-event">
                                                 {{ element.houseServiceType.name }}<br/>
                                                 {{ element.customer.firstname }} {{ element.customer.lastname }}
                                             </span>
-                                        </div>
+                                                    </div>
 
-                                    {% endif %}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+
+                                    </div>
                                 {% endfor %}
-                            {% endif %}
 
+                            </div>
                         </div>
-                    {% endfor %}
-
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+                        {% endfor %}
+                    </div>
 {% endblock %}
