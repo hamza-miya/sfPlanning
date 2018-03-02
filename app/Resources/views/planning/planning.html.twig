@@ -3,17 +3,31 @@
 {% block body %}
     <div class="container-fluid">
 
-        <div class="date">
+        {#<div class="date">
+            <date class="picker col-md-2">
+                <input type="text" class="form-control" id="datepicker">
+            </date>
+        </div>#}
 
-            <input type="number" name="number-weeks"/>
-
-        </div>
-
-        {% for day in ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'] %}
+        {% for number,day in ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'] %}
             <div class="col-md-2 cols">
                 <div class="titre">
                     <span>{{ day }}</span><br>
-                    <span>00</span>
+                    <span class="day">
+                        {% if number == 0 %}
+                            26 Février 2018
+                        {% elseif number == 1 %}
+                            27 Février 2018
+                        {% elseif number == 2 %}
+                            28 Février 2018
+                        {% elseif number == 3 %}
+                            01 Mars 2018
+                        {% elseif number == 4 %}
+                            02 Mars 2018
+                        {% elseif number == 5 %}
+                            03 Mars 2018
+                        {% endif %}
+                    </span>
                 </div>
                 <div class="planning">
 

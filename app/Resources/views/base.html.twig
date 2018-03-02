@@ -6,7 +6,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 
     {% block stylesheets %}
-        {% stylesheets 'bundles/app/assets/css/*' filter='cssrewrite' %}
+        {% stylesheets 'bundles/app/assets/css/style.css' 'bundles/app/assets/css/jquery-ui.min.css' 'bundles/app/assets/css/*' filter='cssrewrite' %}
         <link rel="stylesheet" href="{{ asset_url }}"/>
         {% endstylesheets %}
     {% endblock %}
