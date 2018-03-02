@@ -14,22 +14,17 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         $session = $request->getSession();
+        dump($session->get('identifier'));
 
-        dump($session->get('email'));
-
-        /*$em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
         $employee = $em->getRepository('AppBundle:Employee')->findOneBy(array(
-            'email' => $email,
-            'password' => $password,
+            'email' => $session->get('identifier'),
         ));
 
-
-        return $this->redirectToRoute('planning', array(
-            'employee' => $employee
-        ));*/
-
-        return $this->render('default/index.html.twig');
-
+        // replace this example code with whatever you need
+        return $this->render('planning/planning.html.twig', array(
+            'employee' => $employee,
+        ));
     }
 
 

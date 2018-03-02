@@ -13,7 +13,19 @@ class PlanningController extends Controller
      */
     public function planningAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('planning/planning.html.twig', []);
+        $identifier = $request->get('identifier');
+
+        $em = $this->getDoctrine()->getManager();
+        $employee = $em->getRepository('AppBundle:Employee')->findOneBy(array(
+            'email' => $identifier,
+        ));
+        if (isset($employee)){
+            $ev = $employee->getEvents();
+            dump($ev);
+        } else $employee = null;
+
+        return $this->render('planning/planning.html.twig', array(
+            'employee' => $employee,
+        ));
     }
 }

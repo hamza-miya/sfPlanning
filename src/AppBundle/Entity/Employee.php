@@ -54,7 +54,7 @@ class Employee
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Event", mappedBy="employee")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Event", mappedBy="employee", fetch="EAGER")
      */
     private $events;
 
@@ -168,5 +168,23 @@ class Employee
     {
         return $this->password;
     }
+
+    /**
+     * @return ArrayCollection|\AppBundle\Entity\Event[]
+     */
+    public function getEvents()
+    {
+        return $this->events;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->email;
+    }
+
+
 }
 

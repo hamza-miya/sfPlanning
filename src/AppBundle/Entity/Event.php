@@ -37,12 +37,12 @@ class Event
     private $duration;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\houseServiceType")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\houseServiceType", fetch="EAGER")
      */
     private $houseServiceType;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Customer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Customer", fetch="EAGER")
      */
     private $customer;
 
