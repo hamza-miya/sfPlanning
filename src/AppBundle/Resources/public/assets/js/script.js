@@ -19,15 +19,20 @@ $(function () {
             $(this).append(elemDrop);
 
             var hour = $(this).attr("data-space-event");
-            var day = $(this).parent().attr("data-day");
+            var date = $(this).parent().attr("data-day");
+
+            var explode = date.split("-");
+
             var id = elemDrop.attr("data-id");
 
-            var updateTime = new Date(day);
-            updateTime.setHours(hour);
-
-
-            $.post("http://127.0.0.1:8000/event/edit", {updateTime: updateTime, id: id}, function (data) {
-                console.log("OK");
+            $.post("http://127.0.0.1:8000/event/edit", {
+                day: explode[2],
+                month: explode[1],
+                year: explode[0],
+                hour: hour,
+                id: id
+            }, function (data) {
+                alert("Ok")
             });
 
         }
